@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Treinos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+            padding: 10px;
+        }
+        .button {
+            margin: 5px;
+            padding: 10px 15px;
+            font-size: 12px; /* Fonte menor */
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            background-color: green;
+            text-transform: uppercase; /* Todas as letras em maiúsculas */
+        }
+        .button:hover {
+            background-color: darkgreen;
+        }
+        .treino {
+            display: none;
+            margin-top: 20px;
+            padding: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        .treino.active {
+            display: block;
+        }
+        h1, h2 {
+            font-size: 1.3em; /* Fonte um pouco menor */
+            font-weight: bold;
+            text-transform: uppercase; /* Todas as letras em maiúsculas */
+            margin-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 15px;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Alinha ao centro */
+            justify-content: center;
+        }
+        .exercise {
+            font-size: 1em; /* Fonte menor */
+            text-transform: uppercase; /* Todas as letras em maiúsculas */
+            margin-bottom: 5px;
+        }
+        .details {
+            display: flex;
+            align-items: center;
+            justify-content: center; /* Alinha ao centro */
+            gap: 10px;
+            width: 100%; /* Para ocupar toda a largura do li */
+        }
+        .details span {
+            font-size: 0.9em; /* Fonte menor */
+            display: inline-block;
+        }
+        .details input {
+            width: 70px;
+            padding: 5px;
+            font-size: 0.9em; /* Fonte menor */
+            text-transform: uppercase; /* Todas as letras em maiúsculas */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .details .checkmark {
+            font-size: 1.2em; /* Tamanho do emoji */
+            color: green;
+            cursor: pointer;
+            margin-left: 10px; /* Espaço entre o input e o emoji */
+        }
+
+        @media (max-width: 768px) {
+            .button {
+                padding: 8px 12px;
+                font-size: 10px;
+            }
+            .details {
+                gap: 5px;
+            }
+            .details input {
+                width: 60px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.2em; /* Fonte um pouco menor */
+            }
+            .button {
+                padding: 6px 10px;
+                font-size: 10px;
+            }
+            .details {
+                gap: 5px;
+            }
+            .details input {
+                width: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>TREINOS</h1>
+
+    <button class="button" onclick="mostrarTreino('A')">Treino A</button>
+    <button class="button" onclick="mostrarTreino('B')">Treino B</button>
+    <button class="button" onclick="mostrarTreino('C')">Treino C</button>
+
+    <div id="treinoA" class="treino">
+        <h2>PEITO E TRÍCEPS</h2>
+        <ul>
+            <li>
+                <div class="exercise">PEC FLY</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaA1Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('A1')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">SUPINO INCLINADO MÁQUINA</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaA2Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('A2')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">SUPINO RETO MÁQUINA</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaA3Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('A3')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">SUPINO RETO COM BARRA</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaA4Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('A4')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">TRÍCEPS POLIA CORDA</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaA5Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('A5')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">ELEVAÇÃO LATERAL COM HALTERES</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaA6Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('A6')">✅</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="treinoB" class="treino">
+        <h2>COSTAS E BÍCEPS</h2>
+        <ul>
+            <li>
+                <div class="exercise">REMADA TRIÂNGULO</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaB1Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('B1')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">COSTAS FLY</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaB2Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('B2')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">PUXADA</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaB3Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('B3')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">ROSCA DIRETA COM HALTERES</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaB4Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('B4')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">ELEVAÇÃO</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaB5Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('B5')">✅</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <div id="treinoC" class="treino">
+        <h2>PERNAS E GLÚTEOS</h2>
+        <ul>
+            <li>
+                <div class="exercise">LEG PRESS</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaC1Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('C1')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">ABDUTOR</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaC2Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('C2')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">REDUTOR</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaC3Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('C3')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">CHUTE</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaC4Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('C4')">✅</span>
+                </div>
+            </li>
+            <li>
+                <div class="exercise">PANTURRILHA</div>
+                <div class="details">
+                    <span>4 x 10</span>
+                    <span>50s</span>
+                    <span>CARGA:</span>
+                    <input type="number" id="cargaC5Input" placeholder="kg">
+                    <span class="checkmark" onclick="salvarCarga('C5')">✅</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        function mostrarTreino(treino) {
+            document.querySelectorAll('.treino').forEach(function(element) {
+                element.classList.remove('active');
+            });
+            document.getElementById('treino' + treino).classList.add('active');
+            carregarCarga(treino);
+        }
+
+        function salvarCarga(exercicio) {
+            const cargaInput = document.getElementById('carga' + exercicio + 'Input');
+            const carga = cargaInput.value;
+            if (carga) {
+                localStorage.setItem('carga' + exercicio, carga);
+                alert('Carga salva para ' + exercicio);
+            } else {
+                alert('Por favor, insira a carga antes de salvar.');
+            }
+        }
+
+        function carregarCarga(treino) {
+            const exercicios = ['1', '2', '3', '4', '5', '6', '7'];
+            exercicios.forEach(function(exercicio) {
+                const carga = localStorage.getItem('carga' + treino + exercicio);
+                if (carga) {
+                    document.getElementById('carga' + treino + exercicio + 'Input').value = carga;
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            carregarCarga('A');
+            carregarCarga('B');
+            carregarCarga('C');
+        });
+    </script>
+
+</body>
+</html>
