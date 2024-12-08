@@ -2,12 +2,14 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Treinos</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
+      background-color: black; /* Fundo preto */
+      color: rgba(128, 128, 128, 0.6); /* Cor de todos os textos no cinza 60% */
     }
     .treino {
       display: none;
@@ -19,25 +21,21 @@
       margin-bottom: 15px;
     }
     .details {
-      font-size: 14px;
+      font-size: 16px; /* Fonte igual à carga */
       display: flex;
       justify-content: center;
-      gap: 10px;
       align-items: center;
+      gap: 10px;
     }
     .details span {
       display: inline-block;
       min-width: 70px;
     }
-    .edit-btn {
-      background: none;
-      border: none;
-      cursor: pointer;
-      font-size: 14px; /* Reduzindo o tamanho do emoji */
-    }
     .carga {
-      font-size: 16px;
+      font-size: 16px; /* Tamanho da carga */
       display: inline-block;
+      color: rgba(128, 128, 128, 0.6); /* Fonte cinza 60% */
+      margin-right: 10px;
     }
     .carga.editable {
       border-bottom: 1px dashed black;
@@ -45,27 +43,49 @@
       width: 50px;
       padding: 0 5px;
     }
+    .edit-btn {
+    background-color: transparent; /* Fundo transparente */
+    color: rgba(128, 128, 128, 0.6); /* Cor do texto */
+    font-size: 20px; /* Tamanho da fonte */
+    border: none; /* Sem borda */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    }
+    button {
+      background-color: transparent; /* Botões com fundo transparente */
+      border: 2px solid rgba(128, 128, 128, 0.6); /* Cor do botão cinza */
+      color: rgba(128, 128, 128, 0.6); /* Cor do texto do botão */
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 18px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: rgba(128, 128, 128, 0.1); /* Cor de hover dos botões */
+    }
   </style>
 </head>
 <body>
-  <h1 style="font-size: 32px; font-weight: bold;">TREINOS</h1>
+  <h1 style="font-size: 32px; font-weight: bold;">TREINOS ALLP FIT</h1>
   <div>
-    <button id="btnA" style="background-color: green; color: white; padding: 10px 20px; border-radius: 5px; margin: 5px;">A</button>
-    <button id="btnB" style="background-color: green; color: white; padding: 10px 20px; border-radius: 5px; margin: 5px;">B</button>
-    <button id="btnC" style="background-color: green; color: white; padding: 10px 20px; border-radius: 5px; margin: 5px;">C</button>
+    <button id="btnA">A</button>
+    <button id="btnB">B</button>
+    <button id="btnC">C</button>
   </div>
 
+  <!-- TREINO A -->
   <div id="treinoA" class="treino">
-    <h2 style="font-size: 24px; font-weight: bold;">TREINO A</h2>
+    <h2 style="font-size: 24px; font-weight: bold;">PEITO - TRÍCEPS</h2>
     <div class="exercicio">
       <p style="font-size: 18px;">PEC FLY</p>
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaA1" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaA1')">✏️</button>
-        </span>
+        <span class="carga" id="cargaA1">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaA1')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -73,10 +93,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaA2" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaA2')">✏️</button>
-        </span>
+        <span class="carga" id="cargaA2">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaA2')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -84,10 +102,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaA3" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaA3')">✏️</button>
-        </span>
+        <span class="carga" id="cargaA3">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaA3')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -95,10 +111,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaA4" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaA4')">✏️</button>
-        </span>
+        <span class="carga" id="cargaA4">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaA4')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -106,10 +120,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaA5" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaA5')">✏️</button>
-        </span>
+        <span class="carga" id="cargaA5">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaA5')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -117,25 +129,22 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaA6" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaA6')">✏️</button>
-        </span>
+        <span class="carga" id="cargaA6">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaA6')">+</button>
       </div>
     </div>
   </div>
 
+  <!-- TREINO B -->
   <div id="treinoB" class="treino">
-    <h2 style="font-size: 24px; font-weight: bold;">TREINO B</h2>
+    <h2 style="font-size: 24px; font-weight: bold;">COSTAS - BÍCEPS</h2>
     <div class="exercicio">
       <p style="font-size: 18px;">REMADA TRIÂNGULO</p>
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaB1" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaB1')">✏️</button>
-        </span>
+        <span class="carga" id="cargaB1">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaB1')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -143,10 +152,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaB2" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaB2')">✏️</button>
-        </span>
+        <span class="carga" id="cargaB2">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaB2')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -154,10 +161,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaB3" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaB3')">✏️</button>
-        </span>
+        <span class="carga" id="cargaB3">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaB3')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -165,10 +170,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaB4" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaB4')">✏️</button>
-        </span>
+        <span class="carga" id="cargaB4">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaB4')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -176,25 +179,22 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaB5" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaB5')">✏️</button>
-        </span>
+        <span class="carga" id="cargaB5">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaB5')">+</button>
       </div>
     </div>
   </div>
 
+  <!-- TREINO C -->
   <div id="treinoC" class="treino">
-    <h2 style="font-size: 24px; font-weight: bold;">TREINO C</h2>
+    <h2 style="font-size: 24px; font-weight: bold;">PERNAS</h2>
     <div class="exercicio">
       <p style="font-size: 18px;">LEG PRESS</p>
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaC1" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaC1')">✏️</button>
-        </span>
+        <span class="carga" id="cargaC1">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaC1')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -202,10 +202,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaC2" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaC2')">✏️</button>
-        </span>
+        <span class="carga" id="cargaC2">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaC2')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -213,10 +211,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaC3" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaC3')">✏️</button>
-        </span>
+        <span class="carga" id="cargaC3">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaC3')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -224,10 +220,8 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaC4" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaC4')">✏️</button>
-        </span>
+        <span class="carga" id="cargaC4">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaC4')">+</button>
       </div>
     </div>
     <div class="exercicio">
@@ -235,30 +229,27 @@
       <div class="details">
         <span>4 x 10</span>
         <span>50s</span>
-        <span>
-          <span id="cargaC5" class="carga">0 kg</span>
-          <button class="edit-btn" onclick="editarCarga('cargaC5')">✏️</button>
-        </span>
+        <span class="carga" id="cargaC5">0 kg</span>
+        <button class="edit-btn" onclick="editarCarga('cargaC5')">+</button>
       </div>
     </div>
   </div>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
-      // Recupera os valores de carga armazenados no localStorage e atualiza a página
       for (let i = 1; i <= 6; i++) {
         const cargaElementA = document.getElementById(`cargaA${i}`);
         const savedCargaA = localStorage.getItem(`cargaA${i}`);
         if (savedCargaA) {
           cargaElementA.textContent = savedCargaA;
         }
-
+      }
+      for (let i = 1; i <= 5; i++) {
         const cargaElementB = document.getElementById(`cargaB${i}`);
         const savedCargaB = localStorage.getItem(`cargaB${i}`);
         if (savedCargaB) {
           cargaElementB.textContent = savedCargaB;
         }
-
         const cargaElementC = document.getElementById(`cargaC${i}`);
         const savedCargaC = localStorage.getItem(`cargaC${i}`);
         if (savedCargaC) {
@@ -272,8 +263,7 @@
       if (cargaElement.classList.contains('editable')) {
         cargaElement.classList.remove('editable');
         cargaElement.contentEditable = 'false';
-        cargaElement.textContent += ' kg'; // Adiciona "kg" se o usuário não tiver colocado
-        // Salva o valor digitado no localStorage
+        cargaElement.textContent += ' kg';
         localStorage.setItem(id, cargaElement.textContent);
       } else {
         cargaElement.classList.add('editable');
@@ -302,6 +292,6 @@
       });
       document.getElementById('treinoC').classList.add('active');
     });
-  </script>
+     </script>
 </body>
 </html>
